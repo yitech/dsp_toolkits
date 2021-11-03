@@ -1,1 +1,1 @@
-from silero import STT
+from .silero import STT
