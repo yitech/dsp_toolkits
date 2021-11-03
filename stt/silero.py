@@ -14,6 +14,4 @@ class STT:
          read_audio, prepare_model_input) = self.utils
         input = prepare_model_input(read_batch([wav]), device=self.device)
         output = self.model(input)
-        for example in output:
-            print(self.decoder(example.cpu()))
-        return
+        return self.decoder(output[0].cpu(), word_align=True)
