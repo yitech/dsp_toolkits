@@ -1,1 +1,1 @@
-from inaSpeechSegmenter import segmenter
+from .speech_segmenter import Segmenter
