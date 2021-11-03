@@ -1,0 +1,1 @@
+from inaSpeechSegmenter import segmenter

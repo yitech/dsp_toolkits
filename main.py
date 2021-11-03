@@ -3,7 +3,8 @@ import fetch
 import convert
 
 if __name__ == '__main__':
-    # url = 'https://www.youtube.com/watch?v=LdPjnubLRN0'
-    # fetch.download_mp4_from_youtube(url)
-    convert.convert_mp4_to_wav("Grandpas_Tea.mp4")
+    # urls = ['https://www.youtube.com/watch?v=R0Uq8Eg39R0']
+    # fetch.download_mp4_from_youtube(urls[0], 'data')
+    files = glob.glob('data/*')
+    convert.convert_mp4_to_wav(files[0])
 
