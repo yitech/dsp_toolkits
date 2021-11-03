@@ -1,6 +1,6 @@
 import glob
 import fetch
-from segmenter import segmenter
+from seg import segmenter
 import convert
 
 if __name__ == '__main__':
