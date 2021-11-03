@@ -44,7 +44,7 @@ if __name__ == '__main__':
     # STT
     st = stt.STT()
     for wav_clip in data['segment'].keys():
-        print(st.to_text(wav_clip))
+        print(wav_clip, st.to_text(wav_clip))
 
     # save files
     with open(file='data/data.json', mode='w+') as jfile:
