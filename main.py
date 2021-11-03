@@ -10,6 +10,6 @@ if __name__ == '__main__':
     wav_file = convert.convert_mp4_to_wav(files[0])
     s = Segmenter()
     print(wav_file)
-    print(s(wav_file))
+    print(s.segment(wav_file))
 
 
