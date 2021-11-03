@@ -4,6 +4,7 @@ import fetch
 import convert
 import seg
 import clip
+import stt
 import json
 
 
@@ -39,7 +40,11 @@ if __name__ == '__main__':
         data['segment'][fn].update({'start_seconds': start,
                                     'end_seconds': end})
         count += 1
-    print(data)
+
+    # STT
+    st = stt.STT()
+    for wav_clip in data['segment'].keys():
+        print(st.to_text(wav_clip))
 
     # save files
     with open(file='data/data.json', mode='w+') as jfile:
