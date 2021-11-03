@@ -1,0 +1,1 @@
+from silero import STT
