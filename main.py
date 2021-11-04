@@ -46,12 +46,12 @@ if __name__ == '__main__':
     st = stt.STT()
     for wav_clip in data['segment'].keys():
         sentence, align = st.to_text(wav_clip)
-        data['segment'][fn]['stt'].update({'sentence': sentence})
+        data['segment'][wav_clip]['stt'].update({'sentence': sentence,
+                                                 'word_align': []})
         for a in align:
-            data['segment'][fn]['stt'].update(a)
-            data['segment'][fn]['stt']['start_ts'] += data['segment'][fn]['start_seconds']
-            data['segment'][fn]['stt']['end_ts'] += data['segment'][fn]['start_seconds']
-
+            data['segment'][wav_clip]['stt']['word_align'].append(a)
+            data['segment'][wav_clip]['stt']['word_align'][-1]['start_ts'] += data['segment'][fn]['start_seconds']
+            data['segment'][wav_clip]['stt']['word_align'][-1]['end_ts'] += data['segment'][fn]['start_seconds']
 
     # save files
     with open(file='data/data.json', mode='w+') as jfile:
