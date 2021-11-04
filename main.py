@@ -38,13 +38,17 @@ if __name__ == '__main__':
         fn = clip.clip_segment(wav, start, end, f"{wav_name}_{tp}_{str(count).zfill(2)}.wav")
         data['segment'].update({fn: {}})
         data['segment'][fn].update({'start_seconds': start,
-                                    'end_seconds': end})
+                                    'end_seconds': end,
+                                    'stt': {}})
         count += 1
 
     # STT
     st = stt.STT()
     for wav_clip in data['segment'].keys():
         sentence, align = st.to_text(wav_clip)
+        data['segment'][fn]['stt'].update({'sentence': sentence})
+        for a in align:
+            data['segment'][fn]['stt'].update(a)
 
     # save files
     with open(file='data/data.json', mode='w+') as jfile:
