@@ -28,13 +28,7 @@ if __name__ == '__main__':
     # clip male and female
     count = 0
     wav_name = wav.split('.')[0]
-    for tp, start, end in filter(lambda entity: entity[0] == 'male', res):
-        fn = clip.clip_segment(wav, start, end, f"{wav_name}_{tp}_{str(count).zfill(2)}.wav")
-        data['segment'].update({fn: {}})
-        data['segment'][fn].update({'start_seconds': start,
-                                    'end_seconds': end})
-        count += 1
-    for tp, start, end in filter(lambda entity: entity[0] == 'female', res):
+    for tp, start, end in filter(lambda entity: entity[0] in ['male', 'female'], res):
         fn = clip.clip_segment(wav, start, end, f"{wav_name}_{tp}_{str(count).zfill(2)}.wav")
         data['segment'].update({fn: {}})
         data['segment'][fn].update({'start_seconds': start,
