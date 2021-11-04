@@ -44,7 +44,9 @@ if __name__ == '__main__':
 
     # STT
     st = stt.STT()
+    print(data)
     for wav_clip in data['segment'].keys():
+        print(f"wav_clip: {wav_clip}")
         sentence, align = st.to_text(wav_clip)
         data['segment'][wav_clip]['stt'].update({'sentence': sentence,
                                                  'word_align': []})
