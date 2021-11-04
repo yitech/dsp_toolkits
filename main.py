@@ -49,6 +49,9 @@ if __name__ == '__main__':
         data['segment'][fn]['stt'].update({'sentence': sentence})
         for a in align:
             data['segment'][fn]['stt'].update(a)
+            data['segment'][fn]['stt']['start_ts'] += data['segment'][fn]['start_seconds']
+            data['segment'][fn]['stt']['end_ts'] += data['segment'][fn]['start_seconds']
+
 
     # save files
     with open(file='data/data.json', mode='w+') as jfile:
