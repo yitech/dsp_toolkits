@@ -15,7 +15,7 @@ if __name__ == '__main__':
             os.remove(os.path.join(root, f))
     data = {}
     # Fetch from yt
-    url = 'https://www.youtube.com/watch?v=zGbUxKdGAGE'
+    url = 'https://youtu.be/zGbUxKdGAGE'
     fn = fetch.download_mp4_from_youtube(url, 'data')
     data.update({'source_video': url, 'storage': fn})
     # Convert to wav
